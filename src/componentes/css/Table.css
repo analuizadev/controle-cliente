@@ -1,0 +1,49 @@
+.scroll{
+    max-height: 63vh;
+    overflow: auto;
+    border-radius: 10px;
+    box-shadow: -2px 2px 5px rgb(206, 206, 206);
+}
+
+.scroll::-webkit-scrollbar{
+    width: 10px;
+}
+
+.scroll::-webkit-scrollbar-track {
+    background: rgb(237, 237, 237);
+    border-radius: 10px;
+}
+
+.scroll::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #B19DD0;
+}
+
+.body-table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.body-table th{
+    text-align: left;
+    background-color: #A437DB;
+    padding: 10px 0;
+    font-size: 1.2em;
+    color: white;
+}
+
+.body-table th:first-child,
+.body-table td:first-child{
+    padding-left: 10px;
+}
+
+.body-table td{
+    padding: 10px 0;
+    font-size: 1.2em;
+    color: #A437DB;
+}
+
+.body-table .dif td{
+    color: white;
+    background-color: #B19DD0;
+}
