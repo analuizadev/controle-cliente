@@ -1,0 +1,147 @@
+.details{
+    width: 90%;
+    height: 100%;
+    margin: 3.5em auto;
+}
+
+.details .interativo{
+    display: flex;
+    justify-content: space-between;
+}
+
+.details .edit{
+    background: transparent;
+    border: none;
+    margin-right: 1em;
+    width: 35px;
+}
+
+.details .edit svg{
+    font-size: 1.7em;
+    color: #A437DB;
+    font-weight: bolder;
+}
+
+.details .edit:hover{
+    box-shadow: 2px 2px 5px rgb(187, 187, 187);
+    border-radius: 50%;
+}
+
+.details .back{
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    background-color: #A437DB;
+    color: white;
+    font-size: 1.15em;
+}
+
+.details .back:hover{
+    box-shadow: 2px 2px 5px rgb(187, 187, 187);
+}
+
+.details .card{
+    margin: 0 auto;
+    width: 350px;
+    padding: 1em;
+    border-radius: 10px;
+    background-color: #B19DD0;
+    color: white;
+    box-shadow: -2px 2px 5px rgb(206, 206, 206);
+    min-height: 250px;
+}
+
+.card .invalid{
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card p{
+    font-size: 1.4em;
+}
+
+.card h2{
+    text-align: center;
+}
+
+.card section{
+    margin-top: 1em;
+    padding: 10px;
+}
+
+.card .valid p{
+    margin-bottom: .5em;
+    border-bottom: 1px solid white;
+}
+
+.card section span{
+    color: #A437DB;
+}
+
+.on,
+.off{
+    position: relative;
+    margin-left: 10px;
+}
+
+.on:before{
+    top: 25%;
+    width: 13px;
+    height: 13px;
+    background: #1c86057d;
+    border-radius: 9px;
+    position: absolute;
+    content: "";
+    margin: 0 auto;
+    animation: on-pulse 2s linear infinite;
+}
+
+.on:after{
+    top: 25%;
+    width: 13px;
+    height: 13px;
+    background: #2fbd0f;
+    border-radius: 9px;
+    position: absolute;
+    content: "";
+    margin: 0 auto;
+}
+
+.off:before{
+    top: 25%;
+    width: 13px;
+    height: 13px;
+    background: rgba(199, 18, 18, 0.704);
+    border-radius: 9px;
+    position: absolute;
+    content: "";
+    animation: on-pulse 2s linear infinite;
+}
+
+.off:after{
+    top: 25%;
+    width: 13px;
+    height: 13px;
+    background: rgb(199, 18, 18);
+    border-radius: 9px;
+    position: absolute;
+    content: "";
+}
+
+@keyframes on-pulse{
+    0%{
+        transform: scale(1.0);
+    }
+
+    50%{
+        transform: scale(1.5);
+    }
+
+    100%{
+        transform: scale(2);
+        background-color: transparent;
+    }
+}
