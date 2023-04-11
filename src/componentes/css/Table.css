@@ -47,9 +47,8 @@
     color: #A437DB;
 }
 
-.body-table .dif td{
-    color: white;
-    background-color: #B19DD0;
+.body-table tr:nth-child(even) {
+    background-color: #b19dd095;
 }
 
 .body-table tbody .on::before,

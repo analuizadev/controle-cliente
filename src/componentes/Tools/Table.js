@@ -55,17 +55,11 @@ function Table(){
                                         <td>{clients.action}</td>
                                         <td>{clients.situation}</td>
                                         <td>{clients.indication}</td>
-                                        <td class="on"></td>
-                                    </tr>
-
-                                    <tr class="dif">
-                                        <td>2</td>
-                                        <td>Carlos Eduardo da Silva Filho</td>
-                                        <td>111.222.333-44</td>
-                                        <td>Bolsa família</td>
-                                        <td>Concluído</td>
-                                        <td>Luciano</td>
-                                        <td class="off"></td>
+                                        {clients.isActive === true ? (
+                                            <td class="on"></td>
+                                        ):(
+                                            <td class="off"></td>
+                                        )}
                                     </tr>
                                 </>
                             )

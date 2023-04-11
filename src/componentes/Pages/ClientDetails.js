@@ -41,7 +41,7 @@ function ClientDetails(){
                 
                 <div class="card">
                     <header>
-                        <h2>Client details</h2>
+                        <h2>Detalhes do Cliente</h2>
                     </header>
                     
                     <section>
@@ -54,7 +54,11 @@ function ClientDetails(){
                                     <p>Ação: <span>{clientDet.action}</span></p>
                                     <p>Situação: <span>{clientDet.situation}</span></p>
                                     <p>Indicação: <span>{clientDet.indication}</span></p>
-                                    <p>Ativo: <span class="on"></span></p>
+                                    <p>Ativo: {clientDet.isActive === true ? (
+                                        <span class="on"></span>
+                                    ):(
+                                        <span class="off"></span>
+                                    )}</p>
                                 </div>
                             </>
                         ): (
