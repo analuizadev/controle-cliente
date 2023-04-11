@@ -1,0 +1,38 @@
+.modal-body{
+    top: 60%;
+    left: 30%;
+    position: absolute;
+    border: 1px solid red;
+    z-index: 10;
+    background-color: white;
+    box-shadow: -2px 2px 5px rgb(206, 206, 206);
+    width: 40%;
+}
+
+.modal-body header{
+    display: flex;
+    border: 1px solid red;
+    padding: .5em 0em;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.modal-body header h2{
+    margin: 0 auto;
+    color: #A437DB;
+}
+
+.modal-body header .close{
+    background-color: transparent;
+    border: none;
+    color: #A437DB;
+    font-size: 1.5em;
+    width: 25px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+header .close:hover{
+    border-radius: 20px;
+    box-shadow: 2px 2px 5px rgb(187, 187, 187);
+}

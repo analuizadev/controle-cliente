@@ -24,7 +24,7 @@
 
 .details .edit:hover{
     box-shadow: 2px 2px 5px rgb(187, 187, 187);
-    border-radius: 50%;
+    border-radius: 20px;
 }
 
 .details .back{
