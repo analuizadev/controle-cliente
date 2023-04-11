@@ -1,6 +1,29 @@
 import styles from '../css/Table.css';
 
+import { useEffect, useState } from 'react';
+
 function Table(){
+
+    const [client, setClient] = useState([])
+
+    function clientList(){
+        fetch('https://simple-spreadsheet.onrender.com/rows',{
+            method: 'GET'
+        }).then((resp) => resp.json())
+        .then((data) =>{
+            setClient(data)
+        })
+        .catch((err) => console.log(err))
+    }
+
+    useEffect(() =>{
+        clientList()
+    })
+
+    function details(id){
+        window.location.href=`rows/details/${id}`
+    }
+
     return(
         <>
         <div class="scroll">
@@ -20,298 +43,36 @@ function Table(){
                 </thead>
 
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Ana Luiza de Castro</td>
-                        <td>111.222.333-44</td>
-                        <td>Auxílio universitário</td>
-                        <td>Aguardando documentação</td>
-                        <td>Cristiane</td>
-                        <td>Ativo</td>
-                    </tr>
+                    {
+                        client.map(clients =>{
 
-                    <tr class="dif">
-                        <td>2</td>
-                        <td>Carlos Eduardo da Silva Filho</td>
-                        <td>111.222.333-44</td>
-                        <td>Bolsa família</td>
-                        <td>Concluído</td>
-                        <td>Luciano</td>
-                        <td>Desativado</td>
-                    </tr>
+                            return(
+                                <>
+                                    <tr key={clients.id} onClick={() => details(clients.id)}>
+                                        <td>{clients.folderNumber}</td>
+                                        <td>{clients.name}</td>
+                                        <td>{clients.cpf}</td>
+                                        <td>{clients.action}</td>
+                                        <td>{clients.situation}</td>
+                                        <td>{clients.indication}</td>
+                                        <td class="on"></td>
+                                    </tr>
 
-                    <tr>
-                        <td>1</td>
-                        <td>Ana Luiza de Castro</td>
-                        <td>111.222.333-44</td>
-                        <td>Auxílio universitário</td>
-                        <td>Aguardando documentação</td>
-                        <td>Cristiane</td>
-                        <td>Ativo</td>
-                    </tr>
+                                    <tr class="dif">
+                                        <td>2</td>
+                                        <td>Carlos Eduardo da Silva Filho</td>
+                                        <td>111.222.333-44</td>
+                                        <td>Bolsa família</td>
+                                        <td>Concluído</td>
+                                        <td>Luciano</td>
+                                        <td class="off"></td>
+                                    </tr>
+                                </>
+                            )
 
-                    <tr class="dif">
-                        <td>2</td>
-                        <td>Carlos Eduardo da Silva Filho</td>
-                        <td>111.222.333-44</td>
-                        <td>Bolsa família</td>
-                        <td>Concluído</td>
-                        <td>Luciano</td>
-                        <td>Desativado</td>
-                    </tr>
-
-                    <tr>
-                        <td>1</td>
-                        <td>Ana Luiza de Castro</td>
-                        <td>111.222.333-44</td>
-                        <td>Auxílio universitário</td>
-                        <td>Aguardando documentação</td>
-                        <td>Cristiane</td>
-                        <td>Ativo</td>
-                    </tr>
-
-                    <tr class="dif">
-                        <td>2</td>
-                        <td>Carlos Eduardo da Silva Filho</td>
-                        <td>111.222.333-44</td>
-                        <td>Bolsa família</td>
-                        <td>Concluído</td>
-                        <td>Luciano</td>
-                        <td>Desativado</td>
-                    </tr>
-
-                    <tr>
-                        <td>1</td>
-                        <td>Ana Luiza de Castro</td>
-                        <td>111.222.333-44</td>
-                        <td>Auxílio universitário</td>
-                        <td>Aguardando documentação</td>
-                        <td>Cristiane</td>
-                        <td>Ativo</td>
-                    </tr>
-
-                    <tr class="dif">
-                        <td>2</td>
-                        <td>Carlos Eduardo da Silva Filho</td>
-                        <td>111.222.333-44</td>
-                        <td>Bolsa família</td>
-                        <td>Concluído</td>
-                        <td>Luciano</td>
-                        <td>Desativado</td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Ana Luiza de Castro</td>
-                        <td>111.222.333-44</td>
-                        <td>Auxílio universitário</td>
-                        <td>Aguardando documentação</td>
-                        <td>Cristiane</td>
-                        <td>Ativo</td>
-                    </tr>
-
-                    <tr class="dif">
-                        <td>2</td>
-                        <td>Carlos Eduardo da Silva Filho</td>
-                        <td>111.222.333-44</td>
-                        <td>Bolsa família</td>
-                        <td>Concluído</td>
-                        <td>Luciano</td>
-                        <td>Desativado</td>
-                    </tr>
-
-                    <tr>
-                        <td>1</td>
-                        <td>Ana Luiza de Castro</td>
-                        <td>111.222.333-44</td>
-                        <td>Auxílio universitário</td>
-                        <td>Aguardando documentação</td>
-                        <td>Cristiane</td>
-                        <td>Ativo</td>
-                    </tr>
-
-                    <tr class="dif">
-                        <td>2</td>
-                        <td>Carlos Eduardo da Silva Filho</td>
-                        <td>111.222.333-44</td>
-                        <td>Bolsa família</td>
-                        <td>Concluído</td>
-                        <td>Luciano</td>
-                        <td>Desativado</td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Ana Luiza de Castro</td>
-                        <td>111.222.333-44</td>
-                        <td>Auxílio universitário</td>
-                        <td>Aguardando documentação</td>
-                        <td>Cristiane</td>
-                        <td>Ativo</td>
-                    </tr>
-
-                    <tr class="dif">
-                        <td>2</td>
-                        <td>Carlos Eduardo da Silva Filho</td>
-                        <td>111.222.333-44</td>
-                        <td>Bolsa família</td>
-                        <td>Concluído</td>
-                        <td>Luciano</td>
-                        <td>Desativado</td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Ana Luiza de Castro</td>
-                        <td>111.222.333-44</td>
-                        <td>Auxílio universitário</td>
-                        <td>Aguardando documentação</td>
-                        <td>Cristiane</td>
-                        <td>Ativo</td>
-                    </tr>
-
-                    <tr class="dif">
-                        <td>2</td>
-                        <td>Carlos Eduardo da Silva Filho</td>
-                        <td>111.222.333-44</td>
-                        <td>Bolsa família</td>
-                        <td>Concluído</td>
-                        <td>Luciano</td>
-                        <td>Desativado</td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Ana Luiza de Castro</td>
-                        <td>111.222.333-44</td>
-                        <td>Auxílio universitário</td>
-                        <td>Aguardando documentação</td>
-                        <td>Cristiane</td>
-                        <td>Ativo</td>
-                    </tr>
-
-                    <tr class="dif">
-                        <td>2</td>
-                        <td>Carlos Eduardo da Silva Filho</td>
-                        <td>111.222.333-44</td>
-                        <td>Bolsa família</td>
-                        <td>Concluído</td>
-                        <td>Luciano</td>
-                        <td>Desativado</td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Ana Luiza de Castro</td>
-                        <td>111.222.333-44</td>
-                        <td>Auxílio universitário</td>
-                        <td>Aguardando documentação</td>
-                        <td>Cristiane</td>
-                        <td>Ativo</td>
-                    </tr>
-
-                    <tr class="dif">
-                        <td>2</td>
-                        <td>Carlos Eduardo da Silva Filho</td>
-                        <td>111.222.333-44</td>
-                        <td>Bolsa família</td>
-                        <td>Concluído</td>
-                        <td>Luciano</td>
-                        <td>Desativado</td>
-                    </tr>
-
-                    <tr>
-                        <td>1</td>
-                        <td>Ana Luiza de Castro</td>
-                        <td>111.222.333-44</td>
-                        <td>Auxílio universitário</td>
-                        <td>Aguardando documentação</td>
-                        <td>Cristiane</td>
-                        <td>Ativo</td>
-                    </tr>
-
-                    <tr class="dif">
-                        <td>2</td>
-                        <td>Carlos Eduardo da Silva Filho</td>
-                        <td>111.222.333-44</td>
-                        <td>Bolsa família</td>
-                        <td>Concluído</td>
-                        <td>Luciano</td>
-                        <td>Desativado</td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Ana Luiza de Castro</td>
-                        <td>111.222.333-44</td>
-                        <td>Auxílio universitário</td>
-                        <td>Aguardando documentação</td>
-                        <td>Cristiane</td>
-                        <td>Ativo</td>
-                    </tr>
-
-                    <tr class="dif">
-                        <td>2</td>
-                        <td>Carlos Eduardo da Silva Filho</td>
-                        <td>111.222.333-44</td>
-                        <td>Bolsa família</td>
-                        <td>Concluído</td>
-                        <td>Luciano</td>
-                        <td>Desativado</td>
-                    </tr><tr>
-                        <td>1</td>
-                        <td>Ana Luiza de Castro</td>
-                        <td>111.222.333-44</td>
-                        <td>Auxílio universitário</td>
-                        <td>Aguardando documentação</td>
-                        <td>Cristiane</td>
-                        <td>Ativo</td>
-                    </tr>
-
-                    <tr class="dif">
-                        <td>2</td>
-                        <td>Carlos Eduardo da Silva Filho</td>
-                        <td>111.222.333-44</td>
-                        <td>Bolsa família</td>
-                        <td>Concluído</td>
-                        <td>Luciano</td>
-                        <td>Desativado</td>
-                    </tr>
-
-
-
-                    <tr>
-                        <td>1</td>
-                        <td>Ana Luiza de Castro</td>
-                        <td>111.222.333-44</td>
-                        <td>Auxílio universitário</td>
-                        <td>Aguardando documentação</td>
-                        <td>Cristiane</td>
-                        <td>Ativo</td>
-                    </tr>
-
-                    <tr class="dif">
-                        <td>2</td>
-                        <td>Carlos Eduardo da Silva Filho</td>
-                        <td>111.222.333-44</td>
-                        <td>Bolsa família</td>
-                        <td>Concluído</td>
-                        <td>Luciano</td>
-                        <td>Desativado</td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Ana Luiza de Castro</td>
-                        <td>111.222.333-44</td>
-                        <td>Auxílio universitário</td>
-                        <td>Aguardando documentação</td>
-                        <td>Cristiane</td>
-                        <td>Ativo</td>
-                    </tr>
-
-                    <tr class="dif">
-                        <td>2</td>
-                        <td>Carlos Eduardo da Silva Filho</td>
-                        <td>111.222.333-44</td>
-                        <td>Bolsa família</td>
-                        <td>Concluído</td>
-                        <td>Luciano</td>
-                        <td>Desativado</td>
-                    </tr>
+                        })
+                    }
+                    
                 </tbody>
 
             </table>

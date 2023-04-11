@@ -37,6 +37,10 @@
     padding-left: 10px;
 }
 
+.body-table tbody tr{
+    cursor: pointer;
+}
+
 .body-table td{
     padding: 10px 0;
     font-size: 1.2em;
@@ -46,4 +50,15 @@
 .body-table .dif td{
     color: white;
     background-color: #B19DD0;
+}
+
+.body-table tbody .on::before,
+.body-table tbody .on::after,
+.body-table tbody .off::before,
+.body-table tbody .off::after{
+    top: 35%;
+}
+
+.body-table tbody .off{
+    position: relative;
 }

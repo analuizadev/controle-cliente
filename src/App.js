@@ -11,7 +11,7 @@ function App() {
       <Fragment>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/details" element={<ClientDetails />} />
+          <Route path="rows/details/:id" element={<ClientDetails />} />
         </Routes>
       </Fragment>
     </Router>
