@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+*{
+    font-family: 'Poppins', sans-serif;
+}
+
 .details{
     width: 90%;
     height: 100%;
@@ -14,6 +20,7 @@
     border: none;
     margin-right: 1em;
     width: 35px;
+    height: 35px;
 }
 
 .details .edit svg{
@@ -52,6 +59,18 @@
     min-height: 250px;
 }
 
+.card .tag{
+    border: none;
+    width: 80px;
+    text-align: center;
+    padding: 5px 0px;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, .4);
+    color: #A437DB;
+    font-weight: bolder;
+    cursor: default;
+}
+
 .card .invalid{
     height: 150px;
     display: flex;
@@ -65,6 +84,8 @@
 
 .card h2{
     text-align: center;
+    font-size: 1.7em;
+    cursor: default;
 }
 
 .card section{
@@ -74,7 +95,6 @@
 
 .card .valid p{
     margin-bottom: .5em;
-    border-bottom: 1px solid white;
 }
 
 .card section span{

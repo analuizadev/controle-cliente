@@ -1,0 +1,85 @@
+.edit-body{
+    width: 650px;
+    background-color: white;
+    padding: 1em;
+    position: absolute;
+    z-index: 20;
+    top: 25%;
+    left: 30%;
+    border-radius: 5px;
+    box-shadow: -2px 2px 5px rgb(206, 206, 206);
+}
+
+.edit-body .close{
+    font-weight: bold;
+}
+
+.edit-body header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.edit-body header h2{
+    margin: 0 auto;
+    color: #A437DB;
+}
+
+.edit-body section .form{
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+}
+
+.edit-body .form label{
+    position: absolute;
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    top: 0.25em;
+    background-color: white;
+    text-align: center;
+    width: 50px;
+    margin-left: .5em;
+    color: #A437DB;
+    font-weight: bold;
+}
+
+.edit-body .form .cpf{
+    width: 35px;
+}
+
+.edit-body .form .wid{
+    width: 75px;
+}
+
+.edit-body .form input{
+    padding: 1em;
+    border-radius: 5px;
+    border: 1px solid #A437DB;
+    font-size: 1em;
+    color: #A437DB;
+}
+
+.edit-body .form input:focus{
+    outline: none;
+}
+
+.edit-body footer{
+    display: flex;
+    justify-content: right;
+}
+
+.edit-body footer button{
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    background-color: #A437DB;
+    color: white;
+    font-size: 1.15em;
+    margin-right: 10px;
+}
+
+.edit-body button:hover{
+    box-shadow: 2px 2px 5px rgb(187, 187, 187);
+}

@@ -22,17 +22,18 @@
     color: #A437DB;
 }
 
-.modal-body header .close{
+.close{
     background-color: transparent;
     border: none;
     color: #A437DB;
     font-size: 1.5em;
-    width: 25px;
+    width: 30px;
+    height: 30px;
     margin-right: 5px;
     cursor: pointer;
 }
 
-header .close:hover{
+.close:hover{
     border-radius: 20px;
     box-shadow: 2px 2px 5px rgb(187, 187, 187);
 }
