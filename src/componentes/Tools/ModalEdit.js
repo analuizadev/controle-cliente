@@ -3,6 +3,7 @@ import styles from "../css/EditClient.css";
 import { useState, useEffect } from "react";
 
 import Form from "./Form";
+import { getValue } from "@testing-library/user-event/dist/utils";
 
 function ModalEdit({openModal}){
 
@@ -24,24 +25,6 @@ function ModalEdit({openModal}){
         getClientDet()
     })
 
-    function editClient() {
-        fetch('https://simple-spreadsheet.onrender.com/rows/update',{
-            method: 'POST',
-            body: {
-                "tableRowId": "string",
-                "folderNumber": 0,
-                "name": "string",
-                "cpf": "string",
-                "action": "string",
-                "situation": "string",
-                "indication": "string"
-            }
-        }).then((resp) => resp.json())
-        .then((data) =>{
-            console.log(data)
-        })
-    }
-
     return(
         <>
             <div class="edit-body">
@@ -55,8 +38,6 @@ function ModalEdit({openModal}){
                         <>
                             <Form
                             clientDet={clientDet}
-                            handleSubmit={editClient}
-                            btnText= "Salvar"
                             openModal= {openModal} />
                         </>
                     ) : (
