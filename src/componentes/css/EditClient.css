@@ -65,12 +65,12 @@
     outline: none;
 }
 
-.edit-body footer{
+.footer{
     display: flex;
     justify-content: right;
 }
 
-.edit-body footer button{
+.footer button{
     padding: 10px 20px;
     border-radius: 20px;
     border: none;
@@ -81,7 +81,7 @@
     margin-right: 10px;
 }
 
-.edit-body button:hover{
+.footer button:hover{
     box-shadow: 2px 2px 5px rgb(187, 187, 187);
 }
 

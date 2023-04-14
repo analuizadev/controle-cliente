@@ -1,8 +1,7 @@
 .modal-body{
-    top: 60%;
+    top: 25%;
     left: 30%;
     position: absolute;
-    border: 1px solid red;
     z-index: 10;
     background-color: white;
     box-shadow: -2px 2px 5px rgb(206, 206, 206);
@@ -11,7 +10,6 @@
 
 .modal-body header{
     display: flex;
-    border: 1px solid red;
     padding: .5em 0em;
     justify-content: space-between;
     text-align: center;
@@ -36,4 +34,8 @@
 .close:hover{
     border-radius: 20px;
     box-shadow: 2px 2px 5px rgb(187, 187, 187);
+}
+
+.modal-body .footer{
+    padding: 5px 0;
 }

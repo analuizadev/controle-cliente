@@ -85,7 +85,7 @@ function Form({ clientDet, openModal }){
                     value={updateClientInfo.indication} onChange={handleInputChange} />
                 </div>
 
-                <footer>
+                <footer class="footer">
                     <button onClick={handleUpdateClient}>Salvar</button>
                     <button onClick={() => openModal(false)}>Cancelar</button>
                 </footer>
