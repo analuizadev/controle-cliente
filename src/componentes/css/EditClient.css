@@ -4,7 +4,7 @@
     padding: 1em;
     position: absolute;
     z-index: 20;
-    top: 25%;
+    top: 17%;
     left: 30%;
     border-radius: 5px;
     box-shadow: -2px 2px 5px rgb(206, 206, 206);
@@ -24,13 +24,14 @@
     color: #A437DB;
 }
 
-.edit-body section .form{
+.form,
+.active{
     display: flex;
     flex-direction: column;
     padding: 1em;
 }
 
-.edit-body .form label{
+.form label{
     position: absolute;
     z-index: 5;
     display: flex;
@@ -44,15 +45,15 @@
     font-weight: bold;
 }
 
-.edit-body .form .cpf{
+.form .cpf{
     width: 35px;
 }
 
-.edit-body .form .wid{
+.form .wid{
     width: 75px;
 }
 
-.edit-body .form input{
+.form input{
     padding: 1em;
     border-radius: 5px;
     border: 1px solid #A437DB;
@@ -60,7 +61,7 @@
     color: #A437DB;
 }
 
-.edit-body .form input:focus{
+.form input:focus{
     outline: none;
 }
 
@@ -82,4 +83,22 @@
 
 .edit-body button:hover{
     box-shadow: 2px 2px 5px rgb(187, 187, 187);
+}
+
+.active div{
+    display: flex;
+    align-items: center;
+}
+
+.active input{
+    width: 17px;
+    height: 17px;
+    cursor: pointer;
+}
+
+.active label{
+    font-size: 1.1em;
+    margin-left: .5em;
+    color: #A437DB;
+    font-weight: bold;
 }
