@@ -28,8 +28,6 @@ function Form({ clientDet, openModal }){
         setUpdateClientInfo({ ...updateClientInfo, [name]: value });
     }
 
-    console.log(updateClientInfo)
-
     return(
         <>
             <form>
