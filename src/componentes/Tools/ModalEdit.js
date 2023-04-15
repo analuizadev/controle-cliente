@@ -3,7 +3,6 @@ import styles from "../css/EditClient.css";
 import { useState, useEffect } from "react";
 
 import Form from "./Form";
-import { getValue } from "@testing-library/user-event/dist/utils";
 
 function ModalEdit({openModal}){
 
@@ -24,7 +23,7 @@ function ModalEdit({openModal}){
     useEffect(() =>{
         getClientDet()
     })
-
+    
     return(
         <>
             <div class="edit-body">
