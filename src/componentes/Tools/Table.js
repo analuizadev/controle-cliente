@@ -21,17 +21,17 @@ function Table() {
 
     useEffect(() => {
         clientList()
-    }, [])
+    })
 
     const [order, setOrder] = useState(1)
     const [columnOrder, setColumnOrder] = useState('name')
 
-    const handleOrder = (fieldName) =>{
+    const handleOrder = (fieldName) => {
         setOrder(-order)
         setColumnOrder(fieldName)
     }
 
-    client = client.sort( (a , b) => {
+    client = client.sort((a, b) => {
         return a[columnOrder] < b[columnOrder] ? -order : order;
     })
 
@@ -53,14 +53,68 @@ function Table() {
         setIdClient(id)
     }
 
+    const [query, setQuery] = useState('')
+    const [limit, setLimit] = useState(0)
+    const [results, setResults] = useState([])
+
+    const handleQueryChange = (event) => {
+        setQuery(event.target.value)
+    }
+
+    const handleLimitChange = (event) => {
+        setLimit(parseInt(event.target.value))
+    }
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        fetch('https://simple-spreadsheet.onrender.com/rows/search', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                query,
+                limit
+            })
+        }).then((resp) => resp.json())
+            .then((data) => { setResults(data) })
+            .catch((err) => { console.error('Erro ao pesquisar registros:', err) })
+    }
+
+    const resultSearch = results.map((result) => {
+        return (
+            <>
+                <tr key={result.id}>
+                    <td>{result.folderNumber}</td>
+                    <td class="click"
+                        onClick={() => details(result.id)}>{result.name}</td>
+                    <td>{result.cpf}</td>
+                    <td>{result.action}</td>
+                    <td>{result.situation}</td>
+                    <td>{result.indication}</td>
+                    {result.isActive === true ? (
+                        <td class="on"></td>
+                    ) : (
+                        <td class="off"></td>
+                    )}
+                    <td class="delete"
+                        onClick={() => deleteClient(result.id)}><MdDelete /></td>
+                </tr>
+            </>
+        )
+    })
+
     return (
         <>
             <div class="body">
                 <header class="table-header">
                     <button onClick={modal} class="new-register">Novo Registro</button>
                     <div class="search">
-                        <input type="search" placeholder="Pesquise um registro..." />
-                        <button class="btn-search">Buscar</button>
+                        <input type="text" onChange={handleQueryChange}
+                            placeholder="Pesquise um registro..." />
+                        <input class="limit" type="number" value={limit} onChange={handleLimitChange} />
+                        <button class="btn-search" onClick={handleSubmit}>Buscar</button>
                     </div>
                 </header>
                 <div class="scroll">
@@ -81,33 +135,37 @@ function Table() {
                         </thead>
 
                         <tbody>
-                            {
-                                client.map(clients => {
+                            {!results.length ? (
+                                <>
+                                    {client.map(clients => {
 
-                                    return (
-                                        <>
-                                            <tr key={clients.id}>
-                                                <td>{clients.folderNumber}</td>
-                                                <td class="click"
-                                                    onClick={() => details(clients.id)}>{clients.name}</td>
-                                                <td>{clients.cpf}</td>
-                                                <td>{clients.action}</td>
-                                                <td>{clients.situation}</td>
-                                                <td>{clients.indication}</td>
-                                                {clients.isActive === true ? (
-                                                    <td class="on"></td>
-                                                ) : (
-                                                    <td class="off"></td>
-                                                )}
-                                                <td class="delete"
-                                                    onClick={() => deleteClient(clients.id)}><MdDelete /></td>
-                                            </tr>
-                                        </>
-                                    )
+                                        return (
+                                            <>
+                                                <tr key={clients.id}>
+                                                    <td>{clients.folderNumber}</td>
+                                                    <td class="click"
+                                                        onClick={() => details(clients.id)}>{clients.name}</td>
+                                                    <td>{clients.cpf}</td>
+                                                    <td>{clients.action}</td>
+                                                    <td>{clients.situation}</td>
+                                                    <td>{clients.indication}</td>
+                                                    {clients.isActive === true ? (
+                                                        <td class="on"></td>
+                                                    ) : (
+                                                        <td class="off"></td>
+                                                    )}
+                                                    <td class="delete"
+                                                        onClick={() => deleteClient(clients.id)}><MdDelete /></td>
+                                                </tr>
+                                            </>
+                                        )
 
-                                })
-                            }
-
+                                    })
+                                    }
+                                </>
+                            ) : (
+                                <>{resultSearch}</>
+                            )}
                         </tbody>
 
                     </table>
