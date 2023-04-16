@@ -12,7 +12,7 @@ function App() {
       <Fragment>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="rows/details/:id" element={<ClientDetails />} />
+          <Route path="rows/details/" element={<ClientDetails />} />
         </Routes>
       </Fragment>
     </Router>
