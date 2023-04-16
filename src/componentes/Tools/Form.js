@@ -49,16 +49,16 @@ function Form({ clientDet, openModal }){
 
                 <div class="form">
                     <label for="folder">Pasta</label>
-                    <input 
-                    type="text" name="folderNumber"
+                    <input class="number"
+                    type="number" name="folderNumber"
                     placeholder="número da pasta"
                     value={updateClientInfo.folderNumber} onChange={handleInputChange} />
                 </div>
 
                 <div class="form">
                     <label class="cpf" for="cpf">CPF</label>
-                    <input 
-                    type="text" name="cpf" 
+                    <input class="number"
+                    type="number" name="cpf" 
                     maxLength="11"
                     placeholder="cpf"
                     value={updateClientInfo.cpf} onChange={handleInputChange} />

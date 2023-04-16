@@ -21,7 +21,7 @@ function Table() {
 
     useEffect(() => {
         clientList()
-    })
+    }, [client])
 
     const [order, setOrder] = useState(1)
     const [columnOrder, setColumnOrder] = useState('name')
@@ -32,7 +32,7 @@ function Table() {
     }
 
     client = client.sort((a, b) => {
-        return a[columnOrder] < b[columnOrder] ? -order : order;
+        return a[columnOrder].toLowerCase() < b[columnOrder].toLowerCase() ? -order : order;
     })
 
     function details(id) {

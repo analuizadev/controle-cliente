@@ -52,8 +52,8 @@ function ModalNew({ modalOpen }) {
 
                     <div class="form">
                         <label for="name">Pasta</label>
-                        <input
-                            type="text" name="folderNumber"
+                        <input class="number"
+                            type="number" name="folderNumber"
                             value={newClient.folderNumber}
                             onChange={handleChange}
                             placeholder="número da pasta" />
@@ -61,8 +61,8 @@ function ModalNew({ modalOpen }) {
 
                     <div class="form">
                         <label class="cpf" for="name">CPF</label>
-                        <input
-                            type="text" name="cpf"
+                        <input class="number"
+                            type="number" name="cpf"
                             maxLength="11"
                             value={newClient.cpf}
                             onChange={handleChange}
