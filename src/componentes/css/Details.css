@@ -5,47 +5,10 @@
 }
 
 .details{
-    width: 90%;
-    height: 100%;
-    margin: 3.5em auto;
-}
-
-.details .interativo{
-    display: flex;
-    justify-content: space-between;
-}
-
-.details .edit{
-    background: transparent;
-    border: none;
-    margin-right: 1em;
-    width: 35px;
-    height: 35px;
-}
-
-.details .edit svg{
-    font-size: 1.7em;
-    color: #A437DB;
-    font-weight: bolder;
-}
-
-.details .edit:hover{
-    box-shadow: 2px 2px 5px rgb(187, 187, 187);
-    border-radius: 20px;
-}
-
-.details .back{
-    padding: 10px 20px;
-    border-radius: 20px;
-    border: none;
-    cursor: pointer;
-    background-color: #A437DB;
-    color: white;
-    font-size: 1.15em;
-}
-
-.details .back:hover{
-    box-shadow: 2px 2px 5px rgb(187, 187, 187);
+    position: absolute;
+    z-index: 10;
+    top: 1.4em;
+    left: 40em;
 }
 
 .details .card{
@@ -59,6 +22,11 @@
     min-height: 250px;
 }
 
+.card .header-details{
+    display: flex;
+    justify-content: space-between;
+}
+
 .card .tag{
     border: none;
     width: 80px;
@@ -69,6 +37,21 @@
     color: #A437DB;
     font-weight: bolder;
     cursor: default;
+}
+
+.card .header-details button{
+    cursor: pointer;
+    width: 30px;
+    font-size: 1.5em;
+    color: #A437DB;
+    font-weight: bold;
+    background-color: transparent;
+    border: none;
+}
+
+.card .header-details button:hover{
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, .4);
 }
 
 .card .invalid{
