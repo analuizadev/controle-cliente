@@ -49,7 +49,7 @@ function Form({ clientDet, openModal }){
 
                 <div class="form">
                     <label for="folder">Pasta</label>
-                    <input class="number"
+                    <input class="input-num"
                     type="number" name="folderNumber"
                     placeholder="número da pasta"
                     value={updateClientInfo.folderNumber} onChange={handleInputChange} />
@@ -57,9 +57,9 @@ function Form({ clientDet, openModal }){
 
                 <div class="form">
                     <label class="cpf" for="cpf">CPF</label>
-                    <input class="number"
+                    <input class="input-num"
                     type="number" name="cpf" 
-                    maxLength="11"
+                    onInput={(e) => e.target.value = e.target.value.slice(0, 11)}
                     placeholder="cpf"
                     value={updateClientInfo.cpf} onChange={handleInputChange} />
                 </div>

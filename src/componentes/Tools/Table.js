@@ -1,9 +1,11 @@
 import styles from '../css/Table.css';
 import ModalNew from './ModalNew';
 import ModalDel from './ModalDel';
+import ModalEdit from './ModalEdit';
+import ModalDetails from './ModalDetails';
 
 import { useEffect, useState } from 'react';
-import { MdDelete } from 'react-icons/md';
+import { MdDelete,MdModeEditOutline } from 'react-icons/md';
 
 function Table() {
 
@@ -35,10 +37,6 @@ function Table() {
         return a[columnOrder].toLowerCase() < b[columnOrder].toLowerCase() ? -order : order;
     })
 
-    function details(id) {
-        window.location.href = `/${id}`
-    }
-
     const [openModal, setOpenModal] = useState(false)
 
     function modal() {
@@ -50,6 +48,20 @@ function Table() {
 
     function deleteClient(id) {
         setOpenDel(true)
+        setIdClient(id)
+    }
+
+    const [openEdit, setOpenEdit] = useState(false)
+
+    function editClient(id) {
+        setOpenEdit(true)
+        setIdClient(id)
+    }
+
+    const [openDet, setOpenDet] = useState(false)
+
+    function detClient(id) {
+        setOpenDet(true)
         setIdClient(id)
     }
 
@@ -88,7 +100,7 @@ function Table() {
                 <tr key={result.id}>
                     <td>{result.folderNumber}</td>
                     <td class="click"
-                        onClick={() => details(result.id)}>{result.name}</td>
+                        onClick={() => detClient(result.id)}>{result.name}</td>
                     <td>{result.cpf}</td>
                     <td>{result.action}</td>
                     <td>{result.situation}</td>
@@ -98,8 +110,8 @@ function Table() {
                     ) : (
                         <td class="off"></td>
                     )}
-                    <td class="delete"
-                        onClick={() => deleteClient(result.id)}><MdDelete /></td>
+                    <td class="edit"onClick={() => editClient(result.id)}><MdModeEditOutline /></td>
+                    <td class="delete"onClick={() => deleteClient(result.id)}><MdDelete /></td>
                 </tr>
             </>
         )
@@ -123,14 +135,15 @@ function Table() {
 
                         <thead>
                             <tr>
-                                <th onClick={() => handleOrder('folderNumber')}>N. Pasta</th>
-                                <th onClick={() => handleOrder('name')}>Nome</th>
-                                <th onClick={() => handleOrder('cpf')}>CPF</th>
-                                <th onClick={() => handleOrder('action')}>Ação</th>
-                                <th onClick={() => handleOrder('situation')}>Situação</th>
-                                <th onClick={() => handleOrder('indication')}>Indicação</th>
+                                <th class="filter" onClick={() => handleOrder('folderNumber')}>N. Pasta</th>
+                                <th class="filter" onClick={() => handleOrder('name')}>Nome</th>
+                                <th class="filter" onClick={() => handleOrder('cpf')}>CPF</th>
+                                <th class="filter" onClick={() => handleOrder('action')}>Ação</th>
+                                <th class="filter" onClick={() => handleOrder('situation')}>Situação</th>
+                                <th class="filter" onClick={() => handleOrder('indication')}>Indicação</th>
                                 <th>Ativo</th>
-                                <th class="delete">Delete</th>
+                                <th class="action">Ações</th>
+                                <th></th>
                             </tr>
                         </thead>
 
@@ -144,7 +157,7 @@ function Table() {
                                                 <tr key={clients.id}>
                                                     <td>{clients.folderNumber}</td>
                                                     <td class="click"
-                                                        onClick={() => details(clients.id)}>{clients.name}</td>
+                                                        onClick={() => detClient(clients.id)}>{clients.name}</td>
                                                     <td>{clients.cpf}</td>
                                                     <td>{clients.action}</td>
                                                     <td>{clients.situation}</td>
@@ -154,8 +167,8 @@ function Table() {
                                                     ) : (
                                                         <td class="off"></td>
                                                     )}
-                                                    <td class="delete"
-                                                        onClick={() => deleteClient(clients.id)}><MdDelete /></td>
+                                                    <td class="edit"onClick={() => editClient(clients.id)}><MdModeEditOutline /></td>
+                                                    <td class="delete"onClick={() => deleteClient(clients.id)}><MdDelete /></td>
                                                 </tr>
                                             </>
                                         )
@@ -178,6 +191,14 @@ function Table() {
 
             {openDel && <ModalDel
                 modalOpen={setOpenDel}
+                idClient={idClient} />}
+
+            {openEdit && <ModalEdit 
+                modalOpen={setOpenEdit}
+                idClient={idClient} />}
+
+            {openDet && <ModalDetails
+                modalOpen={setOpenDet} 
                 idClient={idClient} />}
         </>
     )

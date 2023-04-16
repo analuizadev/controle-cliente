@@ -52,7 +52,7 @@ function ModalNew({ modalOpen }) {
 
                     <div class="form">
                         <label for="name">Pasta</label>
-                        <input class="number"
+                        <input class="input-num"
                             type="number" name="folderNumber"
                             value={newClient.folderNumber}
                             onChange={handleChange}
@@ -61,9 +61,9 @@ function ModalNew({ modalOpen }) {
 
                     <div class="form">
                         <label class="cpf" for="name">CPF</label>
-                        <input class="number"
+                        <input class="input-num"
                             type="number" name="cpf"
-                            maxLength="11"
+                            onInput={(e) => e.target.value = e.target.value.slice(0, 11)}
                             value={newClient.cpf}
                             onChange={handleChange}
                             placeholder="cpf" />

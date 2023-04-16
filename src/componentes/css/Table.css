@@ -78,6 +78,9 @@
     padding: 10px 0;
     font-size: 1.2em;
     color: white;
+}
+
+.body-table .filter{
     cursor: pointer;
 }
 
@@ -96,11 +99,16 @@
     cursor: pointer;
 }
 
-.body-table tr .delete{
+.body-table tr .edit{
     text-align: center;
-} 
+}
 
-.body-table tr .delete svg{
+.body-table tr .action{
+    text-align: right;
+}
+
+.body-table tr .delete svg,
+.body-table tr .edit svg{
     font-size: 1.3em;
     cursor: pointer;
 }

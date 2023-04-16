@@ -27,7 +27,7 @@ function ModalDel({ modalOpen, idClient }) {
 
     return(
         <>
-            <div class="edit-body">
+            <div class="del-body">
                 <header class="header-del">
                     <h2 class="del">Deletar Registro</h2>
                     <button onClick={() => modalOpen(false)} class="close">x</button>

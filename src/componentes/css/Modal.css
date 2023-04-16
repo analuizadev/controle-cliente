@@ -1,5 +1,6 @@
 .edit-body,
-.new-body{
+.new-body,
+.del-body{
     width: 650px;
     background-color: white;
     padding: 1em;
@@ -14,6 +15,10 @@
 .new-body{
     left: 25%;
     top: -5%;
+}
+
+.edit-body{
+    top: -5em;
 }
 
 .close{
@@ -37,18 +42,20 @@
 }
 
 .edit-body header,
-.new-body header{
+.new-body header,
+.del-body header{
     display: flex;
     justify-content: space-between;
 }
 
 .edit-body header h2,
-.new-body header h2{
+.new-body header h2,
+.del-body header h2{
     margin: 0 auto;
     color: #A437DB;
 }
 
-.edit-body .del{
+.del-body .del{
     text-align: center;
     width: 250px;
     border-bottom: 1px solid #B19DD0;
@@ -161,8 +168,8 @@
     align-items: center;
 }
 
-.numberinput::-webkit-outer-spin-button,
-.number::-webkit-inner-spin-button {
+.input-num::-webkit-outer-spin-button,
+.input-num::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }

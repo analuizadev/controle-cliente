@@ -1,21 +1,12 @@
-import Nav from "../Tools/Nav";
 import styles from '../css/Details.css';
-import ModalEdit from "../Tools/ModalEdit";
-
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-import { FiEdit2 } from 'react-icons/fi';
 
-function ClientDetails(){
-
-    const client = useParams()
+function ClientDetails({ modalOpen, idClient }){
 
     const [clientDet, setClientDet] = useState([])
 
-    const [modalOpen, setModalOpen] = useState(false)
-
     function clientDetails(){
-        fetch(`https://simple-spreadsheet.onrender.com/rows/details/${client.id}`, {
+        fetch(`https://simple-spreadsheet.onrender.com/rows/details/${idClient}`, {
             method: 'GET'
         }).then((resp) => resp.json())
         .then((data) => {
@@ -25,29 +16,20 @@ function ClientDetails(){
 
     useEffect(() =>{
         clientDetails()
-    })
-
-    function voltar(){
-        window.location.href='/'
-    }
+    },[])
 
     return(
         <>
-            <Nav />
-
             <div class="details">
-                <div class="interativo">
-                    <button onClick={voltar} class="back">Voltar</button>
-
-                    <button onClick={() => setModalOpen(true)} class="edit"><FiEdit2 /></button>
-                </div>
-                
                 <div class="card">
                     
                 {clientDet.id ? (
                     <>
                         <header>
-                            <aside class="tag">Detalhes</aside>
+                            <div class="header-details">
+                                <aside class="tag">Detalhes</aside>
+                                <button onClick={() => modalOpen(false)}>x</button>
+                            </div>
                             <h2>{clientDet.name}</h2>
                         </header>
                         
@@ -73,7 +55,6 @@ function ClientDetails(){
                     )}
                 </div>
             </div>
-            {modalOpen && <ModalEdit openModal={setModalOpen}/>}
         </>
     )
 }
