@@ -15,14 +15,14 @@ function ModalDel({ modalOpen, idClient }) {
 
     useEffect(() =>{
         clientDetails()
-    }, [])
+    })
 
     function deleteClient(id){
         fetch(`https://simple-spreadsheet.onrender.com/rows/delete/${id}`,{
             method: 'PUT'
-        }).then((data) => {
+        }).then(() => {
             modalOpen(false)
-        })
+        }).catch((err) => console.log(err))
     }
 
     return(
