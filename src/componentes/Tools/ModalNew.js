@@ -1,7 +1,7 @@
-import styles from '../css/NewRegister.css';
+import styles from '../css/Modal.css';
 import { useState } from 'react';
 
-function ModalNew({ modalOpen, createClient }){
+function ModalNew({ modalOpen }){
 
     const [newClient, setNewClient] = useState({
         folderNumber: 0,
@@ -18,25 +18,31 @@ function ModalNew({ modalOpen, createClient }){
       }
 
     const addClient = () =>{
+        console.log(newClient)
         fetch('https://simple-spreadsheet.onrender.com/rows/new',{
             method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(newClient)
         }).then((resp) => resp.json())
         .then((data) => {
-            createClient(newClient);
-            console.log(data)
+            modalOpen(false)
         }).catch((err) => console.log(err))
+    }
+
+
+    const submit = (e) => {
+        addClient()
     }
 
     return(
         <>
-            <div class="modal-body">
+            <div class="new-body">
                 <header>
                     <h2>Novo Registro</h2>
                     <button class="close" onClick={() => modalOpen(false)}>x</button>
                 </header>
 
-                <form>
+                <form onSubmit={submit}>
                     <div class="form">
                         <label for="name">Nome</label>
                         <input type="name" name="name"
@@ -48,7 +54,7 @@ function ModalNew({ modalOpen, createClient }){
                     <div class="form">
                         <label for="name">Pasta</label>
                         <input 
-                        type="text" name="folder" 
+                        type="text" name="folderNumber" 
                         value={newClient.folderNumber}
                         onChange={handleChange}
                         placeholder="número da pasta" />
@@ -92,7 +98,7 @@ function ModalNew({ modalOpen, createClient }){
                     </div>
 
                     <footer class="footer">
-                        <button onClick={addClient}>Salvar</button>
+                        <button>Salvar</button>
                         <button onClick={() => modalOpen(false)}>Cancelar</button>
                     </footer>
                 </form>

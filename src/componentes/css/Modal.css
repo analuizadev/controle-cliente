@@ -1,4 +1,5 @@
-.edit-body{
+.edit-body,
+.new-body{
     width: 650px;
     background-color: white;
     padding: 1em;
@@ -10,18 +11,47 @@
     box-shadow: -2px 2px 5px rgb(206, 206, 206);
 }
 
-.edit-body .close{
+.new-body{
+    left: 25%;
+    top: -5%;
+}
+
+.close{
     font-weight: bold;
 }
 
-.edit-body header{
+.close{
+    background-color: transparent;
+    border: none;
+    color: #A437DB;
+    font-size: 1.5em;
+    width: 30px;
+    height: 30px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.close:hover{
+    border-radius: 20px;
+    box-shadow: 2px 2px 5px rgb(187, 187, 187);
+}
+
+.edit-body header,
+.new-body header{
     display: flex;
     justify-content: space-between;
 }
 
-.edit-body header h2{
+.edit-body header h2,
+.new-body header h2{
     margin: 0 auto;
     color: #A437DB;
+}
+
+.edit-body .del{
+    text-align: center;
+    width: 250px;
+    border-bottom: 1px solid #B19DD0;
 }
 
 .form,
@@ -101,4 +131,32 @@
     margin-left: .5em;
     color: #A437DB;
     font-weight: bold;
+}
+
+.modal-del{
+    min-height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.message{
+    align-items: center;
+    color: #A437DB;
+    font-size: 1.3em;
+    min-height: 150px;
+    display: flex;
+    justify-content: center;
+}
+
+.message span{
+    font-weight: bold;
+}
+
+.erro{
+    min-height: 150px;
+    color: #A437DB;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
