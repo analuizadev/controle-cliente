@@ -27,20 +27,20 @@ function Form({ clientDet, openModal }){
     const handleInputChange = (e) => {
         const { name, value } = e.target;
         setUpdateClientInfo({ ...updateClientInfo, [name]: value });
-
-        console.log(value)
     }
 
     const handleRadioChange = (e) => {
         const { name, value } = e.target;
         setUpdateClientInfo({ ...updateClientInfo, [name]: value === 'true' });
+    }
 
-        console.log(value)
+    const submit = (e) => {
+        handleUpdateClient()
     }
 
     return(
         <>
-            <form>
+            <form onSubmit={submit}>
                 <div class="form">
                     <label for="name">Nome</label>
                     <input type="name" name="name" 
@@ -105,7 +105,7 @@ function Form({ clientDet, openModal }){
                 </div>
 
                 <footer class="footer">
-                    <button onClick={handleUpdateClient}>Salvar</button>
+                    <button>Salvar</button>
                     <button onClick={() => openModal(false)}>Cancelar</button>
                 </footer>
             </form>

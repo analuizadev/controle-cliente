@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import styles from "../css/EditClient.css";
+import styles from "../css/Modal.css";
 import { useState, useEffect } from "react";
 
 import Form from "./Form";
@@ -22,7 +22,7 @@ function ModalEdit({openModal}){
 
     useEffect(() =>{
         getClientDet()
-    })
+    }, [])
     
     return(
         <>
@@ -40,7 +40,7 @@ function ModalEdit({openModal}){
                             openModal= {openModal} />
                         </>
                     ) : (
-                        <h2>Cliente não encontrado</h2>
+                        <h2 class="erro">Cliente não encontrado</h2>
                     )}
                     
                 </section>
