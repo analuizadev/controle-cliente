@@ -36,7 +36,7 @@ function Table() {
     })
 
     function details(id) {
-        window.location.href = `rows/details/${id}`
+        window.location.href = `/${id}`
     }
 
     const [openModal, setOpenModal] = useState(false)
