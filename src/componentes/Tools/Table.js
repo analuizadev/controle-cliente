@@ -135,7 +135,7 @@ function Table() {
 
                         <thead>
                             <tr>
-                                <th class="filter" onClick={() => handleOrder('folderNumber')}>N. Pasta</th>
+                                <th>N. Pasta</th>
                                 <th class="filter" onClick={() => handleOrder('name')}>Nome</th>
                                 <th class="filter" onClick={() => handleOrder('cpf')}>CPF</th>
                                 <th class="filter" onClick={() => handleOrder('action')}>Ação</th>
