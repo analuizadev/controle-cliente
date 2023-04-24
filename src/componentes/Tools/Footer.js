@@ -7,7 +7,7 @@ function Footer() {
         <>
             <footer class='footer'>
                 <p><span>Client Control</span><AiOutlineCopyrightCircle /> 2023 Copyright </p>
-                <p class="credits">This site was designed with <AiFillHeart /> by
+                <p class="credits">Este site foi desenvolvido com <a class="heart"><AiFillHeart /></a> por
                     <span>Ana Luiza de Castro</span>
                     <a target='_blank' href="https://github.com/analuizadev"><AiFillGithub /></a> 
                     <a target='_blank' href='https://www.linkedin.com/in/ana-luiza-de-castro-6580081b7/'><AiFillLinkedin /></a>

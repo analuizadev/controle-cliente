@@ -41,7 +41,7 @@ function ModalDel({ modalOpen, idClient }) {
                                 <p>Deseja deletar os registros do cliente <span>{clientDet.name}</span> ?</p>
                             </div>
 
-                            <footer class="footer">
+                            <footer class="footer-modal">
                                 <button onClick={() => deleteClient(idClient)}>Deletar</button>
                                 <button onClick={() => modalOpen(false)}>Cancelar</button>
                             </footer>
