@@ -34,3 +34,11 @@
     height: 15px;
     cursor: pointer;
 }
+
+.footer a{
+    display: flex;
+}
+
+.footer .heart svg{
+    cursor: inherit;
+}

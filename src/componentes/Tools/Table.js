@@ -5,7 +5,8 @@ import ModalEdit from './ModalEdit';
 import ModalDetails from './ModalDetails';
 
 import { useEffect, useState } from 'react';
-import { MdDelete,MdModeEditOutline } from 'react-icons/md';
+import { MdDelete, MdModeEditOutline } from 'react-icons/md';
+import { FaRegSadCry } from 'react-icons/fa';
 
 function Table() {
 
@@ -110,8 +111,8 @@ function Table() {
                     ) : (
                         <td class="off"></td>
                     )}
-                    <td class="edit"onClick={() => editClient(result.id)}><MdModeEditOutline /></td>
-                    <td class="delete"onClick={() => deleteClient(result.id)}><MdDelete /></td>
+                    <td class="edit" onClick={() => editClient(result.id)}><MdModeEditOutline /></td>
+                    <td class="delete" onClick={() => deleteClient(result.id)}><MdDelete /></td>
                 </tr>
             </>
         )
@@ -129,61 +130,74 @@ function Table() {
                         <button class="btn-search" onClick={handleSubmit}>Buscar</button>
                     </div>
                 </header>
-                <div class="scroll">
 
-                    <table class="body-table">
+                {!client.length ? (
+                    <div class="no-register">
+                        <div>
+                            <h2>Não há registros...</h2>
+                            <span><FaRegSadCry /></span>
+                        </div>
+                        <div class="add-click">
+                            <p><a onClick={modal}>clique aqui</a> para adicionar um registro!</p>
+                        </div>
+                    </div>
+                ) : (
+                    <div class="scroll">
 
-                        <thead>
-                            <tr>
-                                <th>N. Pasta</th>
-                                <th class="filter" onClick={() => handleOrder('name')}>Nome</th>
-                                <th class="filter" onClick={() => handleOrder('cpf')}>CPF</th>
-                                <th class="filter" onClick={() => handleOrder('action')}>Ação</th>
-                                <th class="filter" onClick={() => handleOrder('situation')}>Situação</th>
-                                <th class="filter" onClick={() => handleOrder('indication')}>Indicação</th>
-                                <th>Ativo</th>
-                                <th class="action">Ações</th>
-                                <th></th>
-                            </tr>
-                        </thead>
+                        <table class="body-table">
 
-                        <tbody>
-                            {!results.length ? (
-                                <>
-                                    {client.map(clients => {
+                            <thead>
+                                <tr>
+                                    <th>N. Pasta</th>
+                                    <th class="filter" onClick={() => handleOrder('name')}>Nome</th>
+                                    <th class="filter" onClick={() => handleOrder('cpf')}>CPF</th>
+                                    <th class="filter" onClick={() => handleOrder('action')}>Ação</th>
+                                    <th class="filter" onClick={() => handleOrder('situation')}>Situação</th>
+                                    <th class="filter" onClick={() => handleOrder('indication')}>Indicação</th>
+                                    <th>Ativo</th>
+                                    <th class="action">Ações</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
 
-                                        return (
-                                            <>
-                                                <tr key={clients.id}>
-                                                    <td>{clients.folderNumber}</td>
-                                                    <td class="click"
-                                                        onClick={() => detClient(clients.id)}>{clients.name}</td>
-                                                    <td>{clients.cpf}</td>
-                                                    <td>{clients.action}</td>
-                                                    <td>{clients.situation}</td>
-                                                    <td>{clients.indication}</td>
-                                                    {clients.isActive === true ? (
-                                                        <td class="on"></td>
-                                                    ) : (
-                                                        <td class="off"></td>
-                                                    )}
-                                                    <td class="edit"onClick={() => editClient(clients.id)}><MdModeEditOutline /></td>
-                                                    <td class="delete"onClick={() => deleteClient(clients.id)}><MdDelete /></td>
-                                                </tr>
-                                            </>
-                                        )
+                            <tbody>
+                                {!results.length ? (
+                                    <>
+                                        {client.map(clients => {
 
-                                    })
-                                    }
-                                </>
-                            ) : (
-                                <>{resultSearch}</>
-                            )}
-                        </tbody>
+                                            return (
+                                                <>
+                                                    <tr key={clients.id}>
+                                                        <td>{clients.folderNumber}</td>
+                                                        <td class="click"
+                                                            onClick={() => detClient(clients.id)}>{clients.name}</td>
+                                                        <td>{clients.cpf}</td>
+                                                        <td>{clients.action}</td>
+                                                        <td>{clients.situation}</td>
+                                                        <td>{clients.indication}</td>
+                                                        {clients.isActive === true ? (
+                                                            <td class="on"></td>
+                                                        ) : (
+                                                            <td class="off"></td>
+                                                        )}
+                                                        <td class="edit" onClick={() => editClient(clients.id)}><MdModeEditOutline /></td>
+                                                        <td class="delete" onClick={() => deleteClient(clients.id)}><MdDelete /></td>
+                                                    </tr>
+                                                </>
+                                            )
 
-                    </table>
+                                        })
+                                        }
+                                    </>
+                                ) : (
+                                    <>{resultSearch}</>
+                                )}
+                            </tbody>
 
-                </div>
+                        </table>
+
+                    </div>
+                )}
             </div>
 
             {openModal && <ModalNew
@@ -193,12 +207,12 @@ function Table() {
                 modalOpen={setOpenDel}
                 idClient={idClient} />}
 
-            {openEdit && <ModalEdit 
+            {openEdit && <ModalEdit
                 modalOpen={setOpenEdit}
                 idClient={idClient} />}
 
             {openDet && <ModalDetails
-                modalOpen={setOpenDet} 
+                modalOpen={setOpenDet}
                 idClient={idClient} />}
         </>
     )
