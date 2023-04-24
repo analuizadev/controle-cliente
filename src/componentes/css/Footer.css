@@ -1,0 +1,31 @@
+.footer{
+    display: flex;
+    justify-content: center;
+    color: #B19DD0;
+    font-weight: 600;
+    margin: 0;
+    padding: 0;
+}
+
+.footer p{
+    display: flex;
+    align-items: center;
+}
+
+.footer span{
+    color: #A437DB;
+    margin-right: 5px;
+    font-weight: normal;
+}
+
+.footer a{
+    margin-left: 5px;
+    text-decoration: none;
+    color: #A437DB;
+    font-weight: normal;
+}
+
+.footer a:hover{
+    font-weight: bold;
+    text-decoration: underline;
+}
