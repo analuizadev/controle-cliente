@@ -1,13 +1,16 @@
 import styles from '../css/Footer.css';
-import { AiOutlineCopyrightCircle } from 'react-icons/ai'
+import { AiOutlineCopyrightCircle, AiFillHeart, AiFillGithub, AiFillLinkedin } from 'react-icons/ai'
 
-function Footer(){
+function Footer() {
 
-    return(
+    return (
         <>
             <footer class='footer'>
-                <p><span>Client Control</span> <AiOutlineCopyrightCircle />2023
-                    made by <a target='_blank' href="https://www.linkedin.com/in/ana-luiza-de-castro-6580081b7/">Ana Luiza de Castro</a>
+                <p><span>Client Control</span><AiOutlineCopyrightCircle /> 2023 Copyright </p>
+                <p class="credits">This site was designed with <AiFillHeart /> by
+                    <span>Ana Luiza de Castro</span>
+                    <a target='_blank' href="https://github.com/analuizadev"><AiFillGithub /></a> 
+                    <a target='_blank' href='https://www.linkedin.com/in/ana-luiza-de-castro-6580081b7/'><AiFillLinkedin /></a>
                 </p>
             </footer>
         </>
