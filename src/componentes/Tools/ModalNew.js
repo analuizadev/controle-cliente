@@ -96,7 +96,7 @@ function ModalNew({ modalOpen }) {
                             placeholder="indicação" />
                     </div>
 
-                    <footer class="footer">
+                    <footer class="footer-modal">
                         <button onClick={addClient}>Salvar</button>
                         <button onClick={() => modalOpen(false)}>Cancelar</button>
                     </footer>

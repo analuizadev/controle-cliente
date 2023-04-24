@@ -102,12 +102,12 @@
     outline: none;
 }
 
-.footer{
+.footer-modal{
     display: flex;
     justify-content: right;
 }
 
-.footer button{
+.footer-modal button{
     padding: 10px 20px;
     border-radius: 20px;
     border: none;
@@ -118,7 +118,7 @@
     margin-right: 10px;
 }
 
-.footer button:hover{
+.footer-modal button:hover{
     box-shadow: 2px 2px 5px rgb(187, 187, 187);
 }
 

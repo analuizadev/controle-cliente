@@ -104,7 +104,7 @@ function Form({ clientDet, openModal }){
                     </div>
                 </div>
 
-                <footer class="footer">
+                <footer class="footer-modal">
                     <button>Salvar</button>
                     <button onClick={() => openModal(false)}>Cancelar</button>
                 </footer>
