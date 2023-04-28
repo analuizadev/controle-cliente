@@ -108,6 +108,9 @@
     color: white;
 }
 
+.body-table .min{
+    min-width: 60px;
+}
 .body-table .filter{
     cursor: pointer;
 }

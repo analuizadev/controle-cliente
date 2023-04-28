@@ -7,6 +7,7 @@ function ModalNew({ modalOpen }) {
         folderNumber: 0,
         name: '',
         cpf: '',
+        phone: '',
         action: '',
         situation: '',
         indication: ''
@@ -67,6 +68,15 @@ function ModalNew({ modalOpen }) {
                             value={newClient.cpf}
                             onChange={handleChange}
                             placeholder="cpf" />
+                    </div>
+
+                    <div class="form">
+                        <label for="name">Celular</label>
+                        <input class="input-num"
+                            type="number" name="phone"
+                            value={newClient.phone}
+                            onChange={handleChange}
+                            placeholder="celular" />
                     </div>
 
                     <div class="form">
