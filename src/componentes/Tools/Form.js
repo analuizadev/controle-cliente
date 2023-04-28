@@ -7,6 +7,7 @@ function Form({ clientDet, openModal }){
         folderNumber: clientDet.folderNumber || "",
         name: clientDet.name || "",
         cpf: clientDet.cpf || "",
+        phone: clientDet.phone || "",
         action: clientDet.action || "",
         situation: clientDet.situation || "",
         indication: clientDet.indication || "",
@@ -65,6 +66,14 @@ function Form({ clientDet, openModal }){
                 </div>
 
                 <div class="form">
+                    <label for="phone">Celular</label>
+                    <input class="input-num"
+                    type="number" name="phone"
+                    placeholder="celular"
+                    value={updateClientInfo.phone} onChange={handleInputChange} />
+                </div>
+
+                <div class="form">
                     <label for="action">Ação</label>
                     <input
                     type="text" name="action" 
@@ -89,18 +98,19 @@ function Form({ clientDet, openModal }){
                 </div>
 
                 <div class="active">
+                    <h2>Por favor, selecione uma opção para salvar as alterações:</h2>
                     <div>
                         <input type="radio" name="isActive"
                         value="true" onChange={handleRadioChange}
                         checked={updateClientInfo.isActive === true}/>
-                        <label>Ativo</label>
+                        <label>ativo</label>
                     </div>
 
                     <div>
                         <input type="radio" name="isActive"
                         value="false" onChange={handleRadioChange}
                         checked={updateClientInfo.isActive === false}/>
-                        <label>Inativo</label>
+                        <label>inativo</label>
                     </div>
                 </div>
 

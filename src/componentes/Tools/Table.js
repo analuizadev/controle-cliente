@@ -103,6 +103,7 @@ function Table() {
                     <td class="click"
                         onClick={() => detClient(result.id)}>{result.name}</td>
                     <td>{result.cpf}</td>
+                    <td>{result.phone}</td>
                     <td>{result.action}</td>
                     <td>{result.situation}</td>
                     <td>{result.indication}</td>
@@ -150,7 +151,8 @@ function Table() {
                                 <tr>
                                     <th>N. Pasta</th>
                                     <th class="filter" onClick={() => handleOrder('name')}>Nome</th>
-                                    <th class="filter" onClick={() => handleOrder('cpf')}>CPF</th>
+                                    <th class="filter min" onClick={() => handleOrder('cpf')}>CPF</th>
+                                    <th class="filter min" onClick={() => handleOrder('phone')}>Celular</th>
                                     <th class="filter" onClick={() => handleOrder('action')}>Ação</th>
                                     <th class="filter" onClick={() => handleOrder('situation')}>Situação</th>
                                     <th class="filter" onClick={() => handleOrder('indication')}>Indicação</th>
@@ -172,6 +174,7 @@ function Table() {
                                                         <td class="click"
                                                             onClick={() => detClient(clients.id)}>{clients.name}</td>
                                                         <td>{clients.cpf}</td>
+                                                        <td>{clients.phone}</td>
                                                         <td>{clients.action}</td>
                                                         <td>{clients.situation}</td>
                                                         <td>{clients.indication}</td>

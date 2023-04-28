@@ -37,6 +37,7 @@ function ClientDetails({ modalOpen, idClient }){
                             <div class="valid">
                                 <p>Número da pasta: <span>{clientDet.folderNumber}</span></p>
                                 <p>CPF: <span>{clientDet.cpf}</span></p>
+                                <p>Celular: <span>{clientDet.phone}</span></p>
                                 <p>Ação: <span>{clientDet.action}</span></p>
                                 <p>Situação: <span>{clientDet.situation}</span></p>
                                 <p>Indicação: <span>{clientDet.indication}</span></p>
