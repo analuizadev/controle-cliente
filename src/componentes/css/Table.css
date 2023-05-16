@@ -125,9 +125,10 @@
 }
 
 .body-table td{
-    padding: 10px 0;
+    padding: 10px;
     font-size: 1.2em;
     color: #A437DB;
+    max-width: 100px;
 }
 
 .body-table tr .click{
