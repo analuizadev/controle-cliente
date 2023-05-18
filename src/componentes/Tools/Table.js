@@ -25,6 +25,7 @@ function Table() {
     useEffect(() => {
         clientList()
     }, [client])
+    console.log(client)
 
     const [order, setOrder] = useState(1)
     const [columnOrder, setColumnOrder] = useState('name')
@@ -35,7 +36,7 @@ function Table() {
     }
 
     client = client.sort((a, b) => {
-        return a[columnOrder].toLowerCase() < b[columnOrder].toLowerCase() ? -order : order;
+        return a[columnOrder] < b[columnOrder] ? -order : order;
     })
 
     const [openModal, setOpenModal] = useState(false)
@@ -119,10 +120,6 @@ function Table() {
         )
     })
 
-    function crescente(){
-        client.sort()
-    }
-
     return (
         <>
             <div class="body">
@@ -153,7 +150,7 @@ function Table() {
 
                             <thead>
                                 <tr>
-                                    <th class="filter min" onClick={crescente}>N. Pasta</th>
+                                    <th onClick={() => handleOrder('folderNumber')}>N. Pasta</th>
                                     <th class="filter" onClick={() => handleOrder('name')}>Nome</th>
                                     <th class="filter min" onClick={() => handleOrder('cpf')}>CPF</th>
                                     <th class="filter min" onClick={() => handleOrder('phone')}>Celular</th>
