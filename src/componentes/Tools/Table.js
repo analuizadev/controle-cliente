@@ -150,7 +150,7 @@ function Table() {
 
                             <thead>
                                 <tr>
-                                    <th onClick={() => handleOrder('folderNumber')}>N. Pasta</th>
+                                    <th class="filter" onClick={() => handleOrder('folderNumber')}>N. Pasta</th>
                                     <th class="filter" onClick={() => handleOrder('name')}>Nome</th>
                                     <th class="filter min" onClick={() => handleOrder('cpf')}>CPF</th>
                                     <th class="filter min" onClick={() => handleOrder('phone')}>Celular</th>
