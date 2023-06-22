@@ -25,7 +25,6 @@ function Table() {
     useEffect(() => {
         clientList()
     }, [client])
-    console.log(client)
 
     const [order, setOrder] = useState(1)
     const [columnOrder, setColumnOrder] = useState('name')
@@ -67,58 +66,11 @@ function Table() {
         setIdClient(id)
     }
 
-    const [query, setQuery] = useState('')
-    const [limit, setLimit] = useState(0)
-    const [results, setResults] = useState([])
+    const [search, setSearch] = useState('')
 
-    const handleQueryChange = (event) => {
-        setQuery(event.target.value)
-    }
+    const searchLowerCase = search.toLowerCase();
 
-    const handleLimitChange = (event) => {
-        setLimit(parseInt(event.target.value))
-    }
-
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-
-        fetch('https://simple-spreadsheet.onrender.com/rows/search', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                query,
-                limit
-            })
-        }).then((resp) => resp.json())
-            .then((data) => { setResults(data) })
-            .catch((err) => { console.error('Erro ao pesquisar registros:', err) })
-    }
-
-    const resultSearch = results.map((result) => {
-        return (
-            <>
-                <tr key={result.id}>
-                    <td>{result.folderNumber}</td>
-                    <td class="click"
-                        onClick={() => detClient(result.id)}>{result.name}</td>
-                    <td>{result.cpf}</td>
-                    <td>{result.phone}</td>
-                    <td>{result.action}</td>
-                    <td>{result.situation}</td>
-                    <td>{result.indication}</td>
-                    {result.isActive === true ? (
-                        <td class="on"></td>
-                    ) : (
-                        <td class="off"></td>
-                    )}
-                    <td class="edit" onClick={() => editClient(result.id)}><MdModeEditOutline /></td>
-                    <td class="delete" onClick={() => deleteClient(result.id)}><MdDelete /></td>
-                </tr>
-            </>
-        )
-    })
+    const clientFilter = client.filter((cliente) => cliente.name.toLowerCase().includes(searchLowerCase));
 
     return (
         <>
@@ -126,10 +78,9 @@ function Table() {
                 <header class="table-header">
                     <button onClick={modal} class="new-register">Novo Registro</button>
                     <div class="search">
-                        <input type="text" onChange={handleQueryChange}
+                        <input type="text" onChange={(e) => setSearch(e.target.value)}
+                            value={search}
                             placeholder="Pesquise um registro..." />
-                        <input class="limit" type="number" value={limit} onChange={handleLimitChange} />
-                        <button class="btn-search" onClick={handleSubmit}>Buscar</button>
                     </div>
                 </header>
 
@@ -164,38 +115,32 @@ function Table() {
                             </thead>
 
                             <tbody>
-                                {!results.length ? (
-                                    <>
-                                        {client.map(clients => {
+                                {clientFilter.map(clients => {
 
-                                            return (
-                                                <>
-                                                    <tr key={clients.id}>
-                                                        <td>{clients.folderNumber}</td>
-                                                        <td class="click"
-                                                            onClick={() => detClient(clients.id)}>{clients.name}</td>
-                                                        <td>{clients.cpf}</td>
-                                                        <td>{clients.phone}</td>
-                                                        <td>{clients.action}</td>
-                                                        <td>{clients.situation}</td>
-                                                        <td>{clients.indication}</td>
-                                                        {clients.isActive === true ? (
-                                                            <td class="on"></td>
-                                                        ) : (
-                                                            <td class="off"></td>
-                                                        )}
-                                                        <td class="edit" onClick={() => editClient(clients.id)}><MdModeEditOutline /></td>
-                                                        <td class="delete" onClick={() => deleteClient(clients.id)}><MdDelete /></td>
-                                                    </tr>
-                                                </>
-                                            )
+                                    return (
+                                        <>
+                                            <tr key={clients.id}>
+                                                <td>{clients.folderNumber}</td>
+                                                <td class="click"
+                                                    onClick={() => detClient(clients.id)}>{clients.name}</td>
+                                                <td>{clients.cpf}</td>
+                                                <td>{clients.phone}</td>
+                                                <td>{clients.action}</td>
+                                                <td>{clients.situation}</td>
+                                                <td>{clients.indication}</td>
+                                                {clients.isActive === true ? (
+                                                    <td class="on"></td>
+                                                ) : (
+                                                    <td class="off"></td>
+                                                )}
+                                                <td class="edit" onClick={() => editClient(clients.id)}><MdModeEditOutline /></td>
+                                                <td class="delete" onClick={() => deleteClient(clients.id)}><MdDelete /></td>
+                                            </tr>
+                                        </>
+                                    )
 
-                                        })
-                                        }
-                                    </>
-                                ) : (
-                                    <>{resultSearch}</>
-                                )}
+                                })
+                                }
                             </tbody>
 
                         </table>
