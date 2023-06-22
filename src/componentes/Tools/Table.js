@@ -68,9 +68,7 @@ function Table() {
 
     const [search, setSearch] = useState('')
 
-    const searchLowerCase = search.toLowerCase();
-
-    const clientFilter = client.filter((cliente) => cliente.name.toLowerCase().includes(searchLowerCase));
+    const clientFilter = client.filter((cliente) => cliente.name.toLowerCase().includes(search) || cliente.folderNumber.toString().includes(search) || cliente.cpf.includes(search)) 
 
     return (
         <>
